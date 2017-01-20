@@ -16,6 +16,31 @@
 // Do not use division in your solution.
 
 function getProductsOfAllIntsExceptAtIndex(int) {
-  var products = [];
+  var products = new Array(int.length);
+  console.log(products.length);
+  var current = 0;
+  var product = 1;
+
+  while (current < int.length) {
+    products[current] = product;
+    product *= int[current];
+    current += 1;
+  }
+
+  product = 1;
+  current = int.length - 1;
+
+  while(current >= 0) {
+    products[current] *= product;
+    product *= int[current];
+    current -= 1;
+  }
+
+  return products;
 }
 
+var integers = [1, 7, 3, 4];
+console.log(getProductsOfAllIntsExceptAtIndex(integers));
+
+// expect:
+// [84, 12, 28, 21]
