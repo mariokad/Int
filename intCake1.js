@@ -14,6 +14,26 @@
 
 // No "shorting"—you must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass).
 
-function getMaxProfit(arr) {
-  return arr;
+function getMaxProfit(stockPricesYesterday) {
+  if (stockPricesYesterday.length < 2) {
+    return "Need more prices";
+  }
+
+  startPrice = stockPricesYesterday[0];
+  maxProfit = stockPricesYesterday[1] - stockPricesYesterday[0];
+
+  for (var i = 1; i < stockPricesYesterday.length - 1; i++) {
+    var profit = stockPricesYesterday[i] - startPrice;
+
+    maxProfit = Math.max(maxProfit, profit);
+
+    startPrice = Math.min(startPrice, stockPricesYesterday[i]);
+  }
+
+  return maxProfit;
 }
+
+stockPricesYesterday = [10, 7, 5, 8, 11, 9];
+// stockPricesYesterday = [10];
+
+console.log(getMaxProfit(stockPricesYesterday));
