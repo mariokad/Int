@@ -19,8 +19,8 @@ function getMaxProfit(stockPricesYesterday) {
     return "Need more prices";
   }
 
-  startPrice = stockPricesYesterday[0];
-  maxProfit = stockPricesYesterday[1] - stockPricesYesterday[0];
+  var startPrice = stockPricesYesterday[0];
+  var maxProfit = stockPricesYesterday[1] - stockPricesYesterday[0];
 
   for (var i = 1; i < stockPricesYesterday.length - 1; i++) {
     var profit = stockPricesYesterday[i] - startPrice;
