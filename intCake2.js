@@ -14,3 +14,8 @@
 //   [7*3*4, 1*3*4, 1*7*4, 1*7*3]
 
 // Do not use division in your solution.
+
+function getProductsOfAllIntsExceptAtIndex(int) {
+  var products = [];
+}
+

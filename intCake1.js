@@ -33,7 +33,7 @@ function getMaxProfit(stockPricesYesterday) {
   return maxProfit;
 }
 
-stockPricesYesterday = [10, 7, 5, 8, 11, 9];
+var stockPricesYesterday = [10, 7, 5, 8, 11, 9];
 // stockPricesYesterday = [10];
 
 console.log(getMaxProfit(stockPricesYesterday));
