@@ -37,3 +37,34 @@
 // slots past 9:00 am. But we want the function to work even for very large numbers, like Unix 
 // timestamps. In any case, the spirit of the challenge is to merge meetings where startTime and 
 // endTime don't have an upper bound.
+
+
+function timeRanges(times) {
+  var sortedTimes = times.sort(function(a, b) {
+    return a.startTime > b.startTime ? 1 : -1;
+  });
+
+  var mergedTimes = [sortedTimes[0]];
+
+  for (var i = 1; i < sortedTimes.length; i++) {
+    var current = sortedTimes[i];
+    console.log('current', current);
+    var last = mergedTimes[mergedTimes.length - 1];
+
+    if (current.startTime <= last.endTime) {
+      last.endTime = Math.max(last.endTime, current.endTime);
+    } else {
+      mergedTimes.push(current);
+    }
+  }
+
+  return mergedTimes;
+}
+
+console.log(timeRanges([
+  {startTime: 0,  endTime: 1},
+  {startTime: 3,  endTime: 5},
+  {startTime: 4,  endTime: 8},
+  {startTime: 10, endTime: 12},
+  {startTime: 9,  endTime: 10},
+]));
